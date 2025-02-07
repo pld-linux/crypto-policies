@@ -8,7 +8,7 @@
 Summary:	System-wide crypto policies
 Name:		crypto-policies
 Version:	0.1
-Release:	1
+Release:	2
 License:	LGPL
 Source0:	sequoia.txt
 Source1:	rpm-sequoia.txt
@@ -40,5 +40,5 @@ cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/crypto-policies/back-ends/rpm-seq
 %dir %{_sysconfdir}/crypto-policies/policies
 %dir %{_sysconfdir}/crypto-policies/policies/modules
 
-%ghost %config(missingok,noreplace) %verify(not mode) %{_sysconfdir}/crypto-policies/back-ends/sequoia.config
-%ghost %config(missingok,noreplace) %verify(not mode) %{_sysconfdir}/crypto-policies/back-ends/rpm-sequoia.config
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/crypto-policies/back-ends/sequoia.config
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/crypto-policies/back-ends/rpm-sequoia.config
