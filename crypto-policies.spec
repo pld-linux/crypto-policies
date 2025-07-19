@@ -6,6 +6,7 @@
 # Only sequoia for now to make rpm able to validate signatures.
 #
 Summary:	System-wide crypto policies
+Summary(pl.UTF-8):	Systemowe polityki kryptograficzne
 Name:		crypto-policies
 Version:	0.1
 Release:	2
@@ -14,15 +15,19 @@ Source0:	sequoia.txt
 Source1:	rpm-sequoia.txt
 #URL:		https://gitlab.com/redhat-crypto/fedora-crypto-policies
 BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package provides pre-built configuration files with cryptographic
 policies for various cryptographic back-ends, such as SSL/TLS
 libraries.
 
-%prep
+%description -l pl.UTF-8
+Ten pakiet dostarcza wstępnie zbudowane pliki konfiguracji z
+politykami kryptograficznymi dla różnych backendów kryptograficznych,
+takich jak biblioteki SSL/TLS.
 
-%build
+%prep
 
 %install
 rm -rf $RPM_BUILD_ROOT
